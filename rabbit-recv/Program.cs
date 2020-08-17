@@ -12,7 +12,7 @@ namespace rabbit_recv
         static void Main(string[] args)
         {
            
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            var factory = new ConnectionFactory() { HostName = "192.168.1.66" };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {

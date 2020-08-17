@@ -1,8 +1,15 @@
 version: '3.4'
 
 services:
+  rabbit-recv:
+    image: ${DOCKER_REGISTRY-}rabbitrecv
+    build:
+      context: .
+      dockerfile: rabbit-recv/Dockerfile
+
   rabbit-send:
     image: ${DOCKER_REGISTRY-}rabbitsend
     build:
       context: .
       dockerfile: rabbit/Dockerfile
+

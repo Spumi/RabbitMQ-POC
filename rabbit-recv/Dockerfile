@@ -5,16 +5,16 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["rabbit/rabbit-send.csproj", "rabbit/"]
-RUN dotnet restore "rabbit/rabbit-send.csproj"
+COPY ["rabbit-recv/rabbit-recv.csproj", "rabbit-recv/"]
+RUN dotnet restore "rabbit-recv/rabbit-recv.csproj"
 COPY . .
-WORKDIR "/src/rabbit"
-RUN dotnet build "rabbit-send.csproj" -c Release -o /app/build
+WORKDIR "/src/rabbit-recv"
+RUN dotnet build "rabbit-recv.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "rabbit-send.csproj" -c Release -o /app/publish
+RUN dotnet publish "rabbit-recv.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "rabbit-send.dll"]
+ENTRYPOINT ["dotnet", "rabbit-recv.dll"]

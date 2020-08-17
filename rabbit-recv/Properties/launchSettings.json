@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "rabbit-recv": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
