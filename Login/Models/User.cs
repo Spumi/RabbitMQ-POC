@@ -15,6 +15,7 @@ namespace Login.Model
 
         public int Id { get; set; }
         public string Username { get; set; }
+        [field: NonSerialized]
         public string Password { get; set; }
         public DateTime RegisterDate { get; set; }
         public string Auth_token { get; set; }
