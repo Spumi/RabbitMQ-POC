@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Login.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RabbitSender;
+using System.Text.Json;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -25,6 +27,7 @@ namespace Login
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> Index()
         {
+            Send.SendMessage(JsonSerializer.Serialize(_context.Users.ToListAsync()), "hello");
             return await _context.Users.ToListAsync();
         }
 

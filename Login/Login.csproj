@@ -9,4 +9,8 @@
     <PackageReference Include="MvcScaffolding.EntityMetadata" Version="0.9.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RabbitSender\RabbitSender.csproj" />
+  </ItemGroup>
+
 </Project>
