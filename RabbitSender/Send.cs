@@ -6,9 +6,9 @@ namespace RabbitSender
 {
     public class Send
     {
-        public void SendMessage(string message, string routingKey)
+        public static void SendMessage(string message, string routingKey)
         {
-            var factory = new ConnectionFactory() { HostName = "192.168.1.66" };
+            var factory = new ConnectionFactory() { HostName = "192.168.0.103" };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
