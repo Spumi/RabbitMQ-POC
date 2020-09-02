@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RabbitSender
 {
-    public class Send
+    public class Provider
     {
         public static void SendMessage(string message, string routingKey)
         {
