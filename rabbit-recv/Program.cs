@@ -1,18 +1,22 @@
 ﻿using System;
 
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Hosting;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
 namespace rabbit_recv
 {
-    class Program
-    {
+    class Program {
+
+        private static readonly AutoResetEvent _closingEvent = new AutoResetEvent(false);
 
         static void Main(string[] args)
         {
            
-            var factory = new ConnectionFactory() { HostName = "192.168.1.66" };
+            var factory = new ConnectionFactory() { HostName = "192.168.0.103" };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
@@ -33,8 +37,23 @@ namespace rabbit_recv
                                      autoAck: true,
                                      consumer: consumer);
 
-                Console.WriteLine(" Press [enter] to exit.");
-                Console.ReadLine();
+
+                Task.Factory.StartNew(() =>
+                {
+                    while (true)
+                    {
+                        Console.WriteLine($"running");
+                        Thread.Sleep(1000);
+                    }
+                });
+
+                Console.CancelKeyPress += ((s, a) =>
+                {
+                    Console.WriteLine("Bye!");
+                    _closingEvent.Set();
+                });
+
+                _closingEvent.WaitOne();
             }
         }
     }
