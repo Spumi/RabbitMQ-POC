@@ -27,7 +27,7 @@ namespace Login
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> Index()
         {
-            Send.SendMessage(JsonSerializer.Serialize(_context.Users.ToListAsync()), "hello");
+            Provider.SendMessage(JsonSerializer.Serialize(_context.Users.ToListAsync()), "hello");
             return await _context.Users.ToListAsync();
         }
 

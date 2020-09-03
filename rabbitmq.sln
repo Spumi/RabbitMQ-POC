@@ -18,9 +18,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Controller", "..\Controller
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatRoomServer", "ChatRoomServer\ChatRoomServer.csproj", "{008E61BB-CEFE-40FA-8E18-BC922F133D46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Login\Login.csproj", "{A9A5AFE6-6E2C-4E68-97AF-B4DA3741C33B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Login", "Login\Login.csproj", "{A9A5AFE6-6E2C-4E68-97AF-B4DA3741C33B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitSender", "RabbitSender\RabbitSender.csproj", "{0202180E-B383-4A7C-BB1E-EDF855687326}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitCommunicator", "RabbitSender\RabbitCommunicator.csproj", "{0202180E-B383-4A7C-BB1E-EDF855687326}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
